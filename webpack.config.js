@@ -12,7 +12,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 8080,
+    port: 8081,
   },
 
   module: {
@@ -40,9 +40,11 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "starter",
+      name: "shell",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        app2: "app2@https://app2-xi.vercel.app/remoteEntry.js",
+      },
       exposes: {},
       shared: {
         ...deps,
